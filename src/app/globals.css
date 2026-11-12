@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background: #12050a;
+  color-scheme: dark;
+}
+
+body {
+  @apply font-sans text-cream antialiased;
+  background:
+    radial-gradient(900px 520px at 50% -10%, rgba(154, 34, 64, 0.3), transparent 70%),
+    radial-gradient(700px 420px at 92% 8%, rgba(201, 164, 92, 0.09), transparent 70%),
+    #12050a;
+  background-attachment: fixed;
+}
+
+/* Film grain for a tactile surface */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer components {
+  .gold-text {
+    background: linear-gradient(135deg, #f6e7b8 0%, #c9a45c 45%, #8f6d2e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center rounded-full bg-gold px-7 py-3 text-sm font-medium text-winedeep transition hover:bg-goldsoft;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full border border-gold/30 px-7 py-3 text-sm text-cream transition hover:border-gold/70 hover:bg-gold/[0.05];
+  }
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.3em] text-muted;
+  }
+}
+
+/* Embossed leather texture for the passport cover */
+.leather::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23l)'/%3E%3C/svg%3E");
+}
+
+/* Shimmer used on verified seals */
+.seal-shimmer {
+  background: linear-gradient(110deg, #c9a45c 30%, #f6e7b8 50%, #c9a45c 70%);
+  background-size: 200% 100%;
+  animation: shimmer 3.5s linear infinite;
+}
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seal-shimmer { animation: none; }
+}
+
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+@media print {
+  .no-print { display: none !important; }
+  body::before { display: none; }
+}
+
+/* Command palette: a quick fade and settle, no motion for reduced-motion users */
+dialog.palette[open] { animation: palette-in 0.16s ease-out; }
+dialog.palette::backdrop {
+  background: rgba(7, 11, 20, 0.62);
+  backdrop-filter: blur(4px);
+  animation: palette-fade 0.16s ease-out;
+}
+@keyframes palette-in {
+  from { opacity: 0; transform: translateY(-8px) scale(0.985); }
+}
+@keyframes palette-fade {
+  from { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  dialog.palette[open], dialog.palette::backdrop { animation: none; }
+}
+
+/* Anchor jumps (e.g. /#trust) should land below the fixed nav */
+html { scroll-padding-top: 5rem; }
+
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+@media print {
+  .no-print { display: none !important; }
+  body::before { display: none; }
+}
+
+/* Holographic laminate over the passport portrait */
+.holo {
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 214, 150, 0.28) 38%, rgba(255, 120, 170, 0.2) 48%, rgba(120, 200, 255, 0.2) 58%, transparent 76%);
+  background-size: 250% 100%;
+  mix-blend-mode: screen;
+  animation: holo 7s ease-in-out infinite;
+}
+@keyframes holo {
+  0%, 100% { background-position: 100% 0; }
+  50% { background-position: 0% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .holo { animation: none; background-position: 40% 0; }
+}

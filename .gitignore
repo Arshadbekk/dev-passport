@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+.pnpm-store
+
+# next.js
+.next
+out
+next-env.d.ts
+
+# env files (NEVER commit these)
+.env
+.env.*
+!.env.example
+
+# logs and OS files
+*.log
+.DS_Store
+*.tsbuildinfo
+
+# tests and tooling
+coverage
+.vercel
+
+# editor
+.idea
+.vscode/*
+!.vscode/extensions.json

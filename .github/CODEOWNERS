@@ -1,0 +1,5 @@
+# Replace with your GitHub username or team, then GitHub will request their review automatically.
+# Example: *  @your-github-username
+# Security-sensitive areas deserve a maintainer's review:
+# /supabase/   @your-github-username
+# /src/app/api/ @your-github-username
