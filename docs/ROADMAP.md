@@ -1,31 +1,27 @@
 # Roadmap
 
-## Phase 1: Foundation (v0.1, done)
-- [x] Passport builder with live preview
-- [x] Share by link and QR code
-- [x] PDF through print
-- [x] Demo page
-- [x] Input sanitization
+This mirrors the public page at `/roadmap`.
 
-## Phase 2: Accounts and verification
-- [ ] GitHub login (Supabase Auth)
-- [ ] Save passports in a database
-- [ ] Public profile URLs: `/u/username`
-- [ ] Import merged PRs and repos from GitHub as verified stamps
-- [ ] Privacy controls: hide stamps, make profile private
-- [ ] Delete account and data
+## Shipped
+- GitHub sign-in
+- Guided passport builder with live preview, autosave and strength score
+- Public passport page (`/u/handle`), QR code, PDF export, social preview images
+- Verified stamps: merged PRs in others' public repos, owned public projects, private-contribution counts
+- Privacy controls, data export, account deletion, report form
+- Explore directory (opt-in)
+- Privacy Policy and Terms; roadmap and community pages
+- Tests and CI
 
-## Phase 3: Trust and hiring
-- [ ] Maintainer and peer endorsements
-- [ ] Recruiter view: search by stack and level, shortlist
-- [ ] Ranks: Explorer, Builder, Mentor, Maintainer
-- [ ] Seasonal and event stamps
-- [ ] Embeddable badge for READMEs and LinkedIn
+## Next
+- Endorsements by maintainers and peers
+- More verified sources (store listings, certificates, talks)
+- Embeddable SVG badge for READMEs and LinkedIn
 
-## Phase 4: Reach
-- [ ] Mobile app (Flutter or React Native) on the same backend
-- [ ] Community stats and world map
-- [ ] Self-hosting guide
+## Later
+- Recruiter view with search and shortlists
+- Ranks and seasonal stamps
+- Mobile app on the same backend
+- Self-hosting guide
 
 ## Principles
 - Verified proof over claims
